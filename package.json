@@ -1,0 +1,19 @@
+{
+  "name": "fend_p4",
+  "version": "1.0.0",
+  "description": "Website Optimization project for Udacity's Front-End Nanodegree",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/znalbert/fend_p4.git"
+  },
+  "author": "Zoltan Albert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/znalbert/fend_p4/issues"
+  },
+  "homepage": "https://github.com/znalbert/fend_p4#readme"
+}
