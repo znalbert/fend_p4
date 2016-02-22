@@ -5,6 +5,7 @@ jank-free at 60 frames per second.
 There are two major issues in this code that lead to sub-60fps performance. Can
 you spot and fix both?
 
+I did! Woohoo! Fixes are to changePizzaSizes() and updatePositions().
 
 Built into the code, you'll find a few instances of the User Timing API
 (window.performance), which will be console.log()ing frame rate data into the
@@ -398,7 +399,8 @@ var pizzaElementGenerator = function(i) {
   return pizzaContainer;
 };
 
-// resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
+// resizePizzas(size) is called when the slider in the "Our Pizzas" section of
+// the website moves.
 var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
 
@@ -421,6 +423,11 @@ var resizePizzas = function(size) {
 
   changeSliderLabel(size);
 
+  // Changed this from the original that was causing forced synchronous layouts
+  // to occur by removing the determineDx() function as unnnecessary, and
+  // moving the randomPizzas out of the for loop so it didn't have to be
+  // constantly regenerated. In this version the switch will update newWidth,
+  // which is then used to update the width value of the pizzas.
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
 	switch(size) {
@@ -484,6 +491,10 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // The following code for sliding background pizzas was pulled from Ilya's demo found at:
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
+// Simplified this function by removing calculations from the for loop. Now it
+// no longer generates items or the math for the scoll distance ratio in the
+// loop, so there is a lot less math being done by the loop, and it's no longer
+// guilty of forced synchronous layout.
 // Moves the sliding background pizzas based on scroll position
 function updatePositions() {
   frame++;
