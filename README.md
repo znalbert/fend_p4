@@ -9,7 +9,8 @@
   * Images get compressed.
   * CSS gets minified after having the last 2 most recent browser prefixes automatically inserted as appropriate.
   * HTML gets minified after having CSS inlined.
-1. To get this up and running you just have to download the project, get the project dependencies with `npm install`, and then just run `gulp` and it'll be served with browserSync with in conjunction with `ngrok http 3000` I was able to get pagespeed insights scores of 96 for mobile and 97 for desktop. (However, browserSync caused hours of frustration on part 2 because I wasn't aware that it would show up in devtools as causing forced reflow, leading me to try to debug code that didn't need it. I ended up using `python -m SimpleHTTPServer` instead for that part.)
+1. To get this up and running you just have to download the project, get the project dependencies with `npm install`, and then just run `gulp` and it'll be served with browserSync. In conjunction with `ngrok http 3000` I was able to get pagespeed insights scores of 96 for mobile and 97 for desktop. (However, browserSync caused hours of frustration on part 2 because I wasn't aware that it would show up in devtools as causing forced reflow, leading me to try to debug code that didn't need it. I ended up using `python -m SimpleHTTPServer` instead for that part.)
+1. You can also access this project on gh-pages [here](http://znalbert.github.io/fend_p4/).
 
 
 ###Part 2: Optimize Frames per Second in pizza.html
